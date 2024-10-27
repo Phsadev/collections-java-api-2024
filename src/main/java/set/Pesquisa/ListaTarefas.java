@@ -1,4 +1,4 @@
-package main.java.set.OperacoesBasicas.Pesquisa;
+package main.java.set.Pesquisa;
 
 public class ListaTarefas {
 }

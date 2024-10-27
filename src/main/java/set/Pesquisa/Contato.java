@@ -1,4 +1,4 @@
-package main.java.set.OperacoesBasicas.Pesquisa;
+package main.java.set.Pesquisa;
 
 import java.util.Objects;
 
@@ -21,6 +21,10 @@ public class Contato {
         return numeroTelefone;
     }
 
+    public void setNumeroTelefone(int numeroTelefone) {
+        this.numeroTelefone = numeroTelefone;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -35,9 +39,6 @@ public class Contato {
 
     @Override
     public String toString() {
-        return "Contato{" +
-                "nome='" + nome + '\'' +
-                ", numeroTelefone=" + numeroTelefone +
-                '}';
+        return nome + " " + numeroTelefone;
     }
 }

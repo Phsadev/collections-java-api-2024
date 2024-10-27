@@ -1,8 +1,9 @@
 package main.java.set.Ordenacao;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Produtos {
+public class Produto implements Comparable<Produto> {
 
     private String nome;
 
@@ -13,11 +14,16 @@ public class Produtos {
     private int quantidade;
 
 
-    public Produtos(int cod, String nome, double preco, int quantidade) {
+    public Produto(int cod, String nome, double preco, int quantidade) {
         this.cod = cod;
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
+    }
+
+    @Override
+    public int compareTo(Produto p) {
+        return nome.compareToIgnoreCase(p.getNome());
     }
 
     public int getCod() {
@@ -40,8 +46,8 @@ public class Produtos {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Produtos produtos)) return false;
-        return getCod() == produtos.getCod();
+        if (!(o instanceof Produto produto)) return false;
+        return getCod() == produto.getCod();
     }
 
     @Override
@@ -51,11 +57,16 @@ public class Produtos {
 
     @Override
     public String toString() {
-        return "Produtos{" +
-                "nome='" + nome + '\'' +
-                ", cod=" + cod +
-                ", preco=" + preco +
-                ", quantidade=" + quantidade +
-                '}';
+        return "\n" + "Produto: \n" + "cod= " + cod + "\nnome= " + nome +
+                "\npreco= " + preco +
+                "\nquantidade= " + quantidade + "\n----------------------------------------------";
+    }
+}
+
+class ComparatorPorPrecos implements Comparator<Produto> {
+
+    @Override
+    public int compare(Produto p1, Produto p2) {
+        return Double.compare(p1.getPreco(), p2.getPreco());
     }
 }
